@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Grind Coffee Co.</title>
+    <style>
+        /* General Styles */
+        body { font-family: 'Georgia', serif; margin: 0; padding: 0; background-color: #fcf9f5; color: #332211; }
+        nav { background: rgba(54, 37, 25, 0.95); text-align: center; padding: 15px; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #f5ebe0; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        /* NEW: Intro Hero Section with Background Image */
+        .intro-hero { 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                              url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .intro-hero h1 { font-size: 3.5em; margin: 0 0 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+        .intro-hero p { font-size: 1.3em; max-width: 600px; margin: 0 auto 20px auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        .cta-btn { 
+            display: inline-block; background-color: #e6ccb2; color: #332211; 
+            padding: 12px 24px; text-decoration: none; font-weight: bold; 
+            border-radius: 4px; transition: 0.3s; 
+        }
+        .cta-btn:hover { background-color: #fff; }
+
+        /* Info & Menu Styling */
+        .shop-info { text-align: center; background: #e6ccb2; padding: 30px; border-radius: 8px; margin-bottom: 40px; }
+        .menu-section { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .menu-item { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddcbb4; padding: 12px 0; }
+        .price { font-weight: bold; color: #6f4e37; }
+        footer { background: #4a3525; color: #f5ebe0; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#menu">Our Menu</a>
+        <a href="#about">Our Story</a>
+    </nav>
+
+    <!-- NEW: Visual Shop Introduction Cover -->
+    <div class="intro-hero">
+        <h1>The Daily Grind</h1>
+        <p>Crafting perfect mornings with freshly roasted, locally sourced specialty coffee.</p>
+        <a href="#menu" class="cta-btn">View Menu & Pricing</a>
+    </div>
+
+    <div class="container">
+        
+        <div class="shop-info">
+            <h2>Welcome to Your New Third Place</h2>
+            <p>Open Daily: <b>6:00 AM – 4:00 PM</b></p>
+            <p><i>123 Main Street, Downtown District</i></p>
+        </div>
+
+        <section id="menu" class="menu-section">
+            <h2>Our Specialty Menu</h2>
+            <h3>Espresso Drinks</h3>
+            <div class="menu-item"><span>Caffè Latte</span><span class="price">$4.50</span></div>
+            <div class="menu-item"><span>Cappuccino</span><span class="price">$4.25</span></div>
+            <div class="menu-item"><span>Vanilla Cold Brew</span><span class="price">$4.75</span></div>
+
+            <h3>Bakery & Treats</h3>
+            <div class="menu-item"><span>Butter Croissant</span><span class="price">$3.50</span></div>
+            <div class="menu-item"><span>Blueberry Muffin</span><span class="price">$3.75</span></div>
+        </section>
+
+        <section id="about" style="margin-top: 40px;">
+            <h2>Our Story</h2>
+            <p>Founded in 2026, The Daily Grind started with a simple mission: to serve the perfect cup of coffee to our local neighborhood. We roast our beans weekly in small batches to guarantee explosive flavor and peak freshness in every single pour.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Daily Grind Coffee Co. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
