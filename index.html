@@ -4,40 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Daily Coffee Co.</title>
-    <style>
-        /* General Styles */
-        body { font-family: 'Georgia', serif; margin: 0; padding: 0; background-color: #fcf9f5; color: #332211; }
-        nav { background: rgba(54, 37, 25, 0.95); text-align: center; padding: 15px; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #f5ebe0; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-
-        /* NEW: Intro Hero Section with Background Image */
-        .intro-hero { 
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
-                              url('cafebackground1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .intro-hero h1 { font-size: 3.5em; margin: 0 0 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
-        .intro-hero p { font-size: 1.3em; max-width: 600px; margin: 0 auto 20px auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
-        .cta-btn { 
-            display: inline-block; background-color: #e6ccb2; color: #332211; 
-            padding: 12px 24px; text-decoration: none; font-weight: bold; 
-            border-radius: 4px; transition: 0.3s; 
-        }
-        .cta-btn:hover { background-color: #fff; }
-
-        /* Info & Menu Styling */
-        .shop-info { text-align: center; background: #e6ccb2; padding: 30px; border-radius: 8px; margin-bottom: 40px; }
-        .menu-section { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .menu-item { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddcbb4; padding: 12px 0; }
-        .price { font-weight: bold; color: #6f4e37; }
-        footer { background: #4a3525; color: #f5ebe0; text-align: center; padding: 20px; margin-top: 40px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -45,24 +12,27 @@
         <a href="#">Home</a>
         <a href="#menu">Our Menu</a>
         <a href="#about">Our Story</a>
+        <a href="#location">Find Us</a>
+        <a href="#loyalty">Loyalty Club</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙 Dark mode</button>
     </nav>
 
-    <!-- NEW: Visual Shop Introduction Cover -->
     <div class="intro-hero">
         <h1>The Daily Grind</h1>
         <p>Welcome to your cozy neighborhood escape, where every cup is crafted with care, rich aromas welcome you in, and a warm community awaits your presence.</p>
         <a href="#menu" class="cta-btn">View Menu & Pricing</a>
+        <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
     </div>
 
     <div class="container">
-        
-        <div class="shop-info">
+
+        <div class="shop-info reveal">
             <h2>Welcome to Your everyday place</h2>
             <p>Open Daily: <b>6:00 AM – 4:00 PM</b></p>
             <p><i>123 Main Street, Downtown District</i></p>
         </div>
 
-        <section id="menu" class="menu-section">
+        <section id="menu" class="menu-section reveal">
             <h2>Our Specialty Menu</h2>
             <h3>Espresso Drinks</h3>
             <div class="menu-item"><span>Caffè Latte</span><span class="price">$4.50</span></div>
@@ -74,16 +44,72 @@
             <div class="menu-item"><span>Blueberry Muffin</span><span class="price">$3.75</span></div>
         </section>
 
-        <section id="about" style="margin-top: 40px;">
+        <section id="about" class="reveal" style="margin-top: 40px;">
             <h2>Our Story</h2>
             <p>Founded in 2026, The Daily coffee started with a simple mission: to serve the perfect cup of coffee to our local neighborhood. We roast our beans weekly in small batches to guarantee explosive flavor and peak freshness in every single pour.</p>
+        </section>
+
+        <!-- LOCATION / MAP -->
+        <section id="location" class="map-section reveal">
+            <h2>Find Us</h2>
+            <p>123 Main Street, Downtown District</p>
+            <div class="map-wrap">
+                <!-- Replace the q= value with your real address. No API key needed for this basic embed. -->
+                <iframe
+                    src="https://maps.google.com/maps?q=123%20Main%20Street%2C%20Downtown%20District&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Cafe location map">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- LOGIN / LOYALTY -->
+        <section id="loyalty" class="loyalty-section reveal">
+            <h2>Loyalty Club</h2>
+
+            <div id="auth-panel">
+                <div class="loyalty-tabs">
+                    <button id="tab-login" class="active" type="button">Log in</button>
+                    <button id="tab-signup" type="button">Sign up</button>
+                </div>
+
+                <form id="login-form" class="auth-form active">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Log in</button>
+                </form>
+
+                <form id="signup-form" class="auth-form">
+                    <input type="text" id="signup-name" placeholder="Your name" required>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                    <input type="password" id="signup-password" placeholder="Password (6+ characters)" required minlength="6">
+                    <button type="submit">Create account</button>
+                </form>
+
+                <p id="auth-msg" class="auth-msg"></p>
+            </div>
+
+            <div id="member-panel" class="member-panel" style="display:none;">
+                <p>Welcome back, <span id="member-name"></span>!</p>
+                <p class="points"><span id="points-display">0</span> pts</p>
+                <button id="checkin-btn" type="button">Check in at the cafe (+10 pts)</button>
+                <br>
+                <button id="logout-btn" type="button" style="margin-top:8px; border:none; background:none; text-decoration:underline; cursor:pointer; color:inherit;">Log out</button>
+            </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 The Daily Coffee Co. All rights reserved.Contact us for complaints 123complaints@gmail.com</p>
+        <p>&copy; 2026 The Daily Coffee Co. All rights reserved. Contact us for complaints 123complaints@gmail.com</p>
     </footer>
 
+    <!-- Firebase (Auth + Firestore) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
