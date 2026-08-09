@@ -46,12 +46,12 @@ revealEls.forEach(el => observer.observe(el));
    Firebase Console > Project settings > General > Your apps > SDK setup
    ========================================================= */
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyA7_cTw9_sB9aW2aZx3vjRpxg44aoNlw_U",
+  authDomain: "coffee-repo.firebaseapp.com",
+  projectId: "coffee-repo",
+  storageBucket: "coffee-repo.firebasestorage.app",
+  messagingSenderId: "636372173944",
+  appId: "1:636372173944:web:6cfa1427937a615f56598d"
 };
 
 firebase.initializeApp(firebaseConfig);
